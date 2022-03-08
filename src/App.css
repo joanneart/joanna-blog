@@ -1,38 +1,366 @@
-.App {
-  text-align: center;
+/* 1. Fonts
+======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto:wght@300;400;500&display=swap');
+
+/* 2. Global Styles
+======================================== */
+a{
+    text-decoration: none;
+    color: #707070;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+article{
+    padding: 5vh 5vw;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body{
+    background-color: #f8f6f6;
+    color: #707070;
+}    
+
+h1{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    letter-spacing: -1.5px;
+    font-size: 48px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+h2{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0px;
+    font-size: 36px;
 }
 
-.App-link {
-  color: #61dafb;
+h3{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.15px;
+    font-size: 28px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+p{
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.15px;
+    font-size: 17px;
 }
+
+main{
+    display: grid;
+    margin: 0 10vw;
+    grid-template-columns: 2fr 1fr ;
+    gap: 0 5vw;
+}
+
+/* 3. Components
+======================================== */
+
+/*===============Navigation============= */
+nav li{
+    display: inline-flex;
+    justify-self: center;
+    margin: 0 2rem;
+
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.15px;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+nav ul{
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #707070;
+}
+
+nav{
+    display: grid;
+    justify-content: space-around;
+}
+
+/*===============article-form============= */
+.article-form{
+    justify-self: center;
+    width: 50vw;
+    display: grid;
+}
+
+.article-form textarea{
+    resize: none;
+    padding: 1rem;
+
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.15px;
+    font-size: 17px;
+    height: 30vh;
+}
+
+.article-form select, .article-form button, .button{
+    text-align: center;
+    padding: 0.5rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.15px;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.article-form input{
+  padding: 0.5rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.15px;
+  font-size: 20px;
+}
+
+.button{
+    border: none;
+    cursor: pointer;
+}
+
+.article-form-list li{
+    display: block;
+}
+
+.article-form-list input{
+    width: 30vw;
+    text-align: left;
+    
+    text-transform: none;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.15px;
+    font-size: 17px;
+
+}
+
+/*===============ARTICLE============= */
+article{
+    margin: 10vh 0;
+}
+
+article h1{
+    margin: 0 0 15px 0;
+}
+
+article h2{
+    margin: 0 0 15px 0;
+}
+
+article h3{
+    margin: 0 0 15px 0;
+}
+
+article p{
+    margin: 0 0 15px 0;
+}
+
+article ul{
+    margin: 0 0 15px 0;
+}
+
+article img{
+    max-height: 50vh;
+    width: 100%;
+    object-fit: contain;
+    margin: 0 0 15px 0;
+}
+
+article section{
+    display: grid;
+    gap: 1rem;
+}
+
+/*===============THUMBNAIL============= */
+.article-section{
+    margin: 10vh 0;
+}
+
+.thumbnail img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.thumbnail{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 2rem;
+}
+
+/*===============SHORT============= */
+.shorts{
+  display: grid;
+  margin: 10vh 0;
+  gap: 3rem;
+}
+
+.short{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.short img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/*===============POLECANE============= */
+.section{
+    margin: 10vh 0;
+}
+
+/* 3. Colors
+======================================== */
+
+.warning{
+    background-color: #8c0032;
+    color: rgb(235, 235, 235);
+    border: none;
+}
+
+.primary{
+    background-color: #8052c6;
+    color: rgb(235, 235, 235);
+    border: none;
+}
+
+.standard{
+    background-color: #ebebeb;
+    border: 1px solid rgb(56, 56, 56);
+    color: rgb(56, 56, 56);
+}
+
+/*===============DODAJ KOMENTARZ============= */
+
+.comment-form{
+    display: grid;
+}
+
+.comment-form input, label, textarea, button{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.15px;
+    font-size: 20px;
+}
+
+.comment-form input, textarea{
+    padding: 0.5rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    margin-bottom: 1.5rem;
+    background-color: rgb(226, 226, 226);
+}
+
+.comment-form textarea{
+    resize: none;
+}
+
+label{
+    margin-bottom: 0.3rem;
+}
+
+.comment-form button{
+    padding: 0.5rem;
+    
+    background-color: #8052c6;
+    color: rgb(235, 235, 235);
+    border: none;
+    transition-duration: 0.3s;
+    cursor: pointer;
+}
+
+.comment-form button:hover{
+    background-color: #8e63ce;
+}
+
+.comment-button{
+    color: #8e63ce;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.15px;
+    font-size: 1rem;
+}
+
+/*===============KOMENTARZE============= */
+
+.comments-container{
+    margin: 3rem 0;
+}
+
+.comments{
+    text-decoration: none;
+    list-style: none;
+    margin: 3rem 0;
+    padding: 0;
+}
+
+.comments li{
+    padding: 0.5rem;
+}
+
+.comments h3{
+    margin: 0.1rem;
+}
+
+.comments p{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.15px;
+    font-size: 20px;
+}
+
+.comments .break{
+    margin-top: 2.5rem;
+    border-bottom: 1px solid #d3d3d3;
+    width: 100%;
+}
+
+.comments-depth2{
+    padding: 0.5rem;
+}
+
+.comments-depth2 ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+span{
+    cursor: pointer;
+}
+
+.nav-dropdown{
+    position: absolute;
+    margin-top: 1.7rem;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+/*===============Button============= */
+ .btn-primary{
+    padding: 0.5rem;
+    
+    background-color: #8052c6;
+    color: rgb(235, 235, 235);
+    border: none;
+    transition-duration: 0.3s;
+    cursor: pointer;
+ }
+
+ .btn-primary:hover{
+    background-color: #8e63ce;
+ }
