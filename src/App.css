@@ -144,6 +144,8 @@ nav{
 /*===============ARTICLE============= */
 article{
     margin: 10vh 0;
+    justify-items: center;
+    justify-content: center;
 }
 
 article h1{
@@ -179,42 +181,6 @@ article section{
 }
 
 /*===============THUMBNAIL============= */
-.article-section{
-    margin: 10vh 0;
-}
-
-.thumbnail img{
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.thumbnail{
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-    margin-bottom: 2rem;
-}
-
-/*===============SHORT============= */
-.shorts{
-  display: grid;
-  margin: 10vh 0;
-  gap: 3rem;
-}
-
-.short{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-}
-
-.short img{
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
 
 /*===============POLECANE============= */
 .section{
@@ -364,3 +330,9 @@ span{
  .btn-primary:hover{
     background-color: #8e63ce;
  }
+
+@media only screen and (max-width: 1300px) {
+    main{
+        grid-template-columns: 1fr ;
+    }
+  }

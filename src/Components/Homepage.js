@@ -1,8 +1,8 @@
 import React from "react";
 import Navigation from "./Navigation";
 
-import Short from "./Short";
-import Thumbnail from "./Thumbnail";
+import Short from "./Short/Short";
+import Thumbnail from './Thumbnail/Thumbnail'
 
 export default function Homepage({articles}){
     return(
@@ -14,7 +14,7 @@ export default function Homepage({articles}){
             {articles.map((article, key) => <Short article={article} key={key} />)}
             </div>
             <section className='section'>
-                <h2>Polecamy</h2>
+                <h2>Polecam</h2>
             {[...articles].reverse().map((article, key) => <Thumbnail article={article} key={key} />)}
             </section>
         </main>

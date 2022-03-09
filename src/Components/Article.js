@@ -3,7 +3,8 @@ import { useParams } from "react-router-dom";
 import AddComment from "./AddComment";
 import Comments from "./Comments";
 import Navigation from "./Navigation";
-import Thumbnail from './Thumbnail'
+import Slider from "./Slider/Slider";
+import Thumbnail from './Thumbnail/Thumbnail'
 
 export default function Article({articles, comments, addComment, updateComment}){
     let params = useParams();
@@ -35,6 +36,8 @@ export default function Article({articles, comments, addComment, updateComment})
                             return <p key={key}>{part.content}</p>;
                         case 'list':
                             return <ul key={key}>{part.content.map((item, key) => <li key={key}>{item}</li>)}</ul>;
+                        case 'slider':
+                            return <Slider key={key} imgs={part.content}/>;
                         case 'img':
                             return <img src={part.content} alt='for the blog article'  key={key}/>;
                         default:
