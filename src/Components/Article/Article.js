@@ -1,25 +1,33 @@
+import './Article.css';
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import AddComment from "./AddComment";
-import Comments from "./Comments";
-import Navigation from "./Navigation";
-import Slider from "./Slider/Slider";
-import Thumbnail from './Thumbnail/Thumbnail'
+import AddComment from "../AddComment";
+import Comments from "../Comments";
+import Navigation from "../Navigation/Navigation";
+import Slider from "../Slider/Slider";
+import Thumbnail from '../Thumbnail/Thumbnail';
 
-export default function Article({articles, comments, addComment, updateComment}){
+export default function Article({ isLoading, toggleLoading, articles, comments, addComment, updateComment}){
     let params = useParams();
     const [article, setArticle] = useState([]);
-
+    const [date, setDate] = useState('');
 
     let current = articles.find(article => article.ref['@ref'].id===params.id);
 
     useEffect(() => {
         setArticle(current ? current : [])
+        setDate(new Date(current ? current.data.date : ''))
     },[articles, current])
+
+    useEffect(() => {
+        toggleLoading();
+        window.scrollTo(0,0);
+    },[current, toggleLoading])
 
     return (
         <>
-        <Navigation />
+        <Navigation/>
+        {isLoading ? <div className="riple-container"><div className="lds-ripple"><div></div><div></div></div></div> : 
         <main>
             <article>
                 {article.data && article.data.article.map((part, key) => {
@@ -44,6 +52,7 @@ export default function Article({articles, comments, addComment, updateComment})
                             return null;
                     }
                 })}
+                <p className="date">Dodano: {date && date.toLocaleDateString()}</p>
                 <section className="comments-container">
                     <AddComment articleId={params.id} addComment={addComment}/>
                     <Comments comments={comments}  articleId={params.id} updateComment={updateComment}/>
@@ -53,7 +62,7 @@ export default function Article({articles, comments, addComment, updateComment})
                 <h2>Na czasie</h2>
                 {articles.map((article, key) => <Thumbnail key={key} article={article}/>)}
             </section>
-        </main>
+        </main>}
         </>
         
         

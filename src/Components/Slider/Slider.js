@@ -11,7 +11,6 @@ export default function Slider({imgs}){
         let pointerInsider = 0;
         const intervalId = setInterval(() => {
             pointerInsider++;
-            console.log(pointerInsider);
             if(pointerInsider<imgs.length){
                 setPointer(pointerInsider);
             }else{
@@ -21,7 +20,10 @@ export default function Slider({imgs}){
             
         }, 4000)
         setIntervalId(intervalId);
-        return () => clearInterval(intervalId)
+        return () => {
+            setPointer(0);
+            clearInterval(intervalId)
+        }
     }, [imgs.length])
     return(
         <>

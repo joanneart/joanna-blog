@@ -7,7 +7,7 @@
 ======================================== */
 a{
     text-decoration: none;
-    color: #707070;
+    color: rgb(106, 106, 106);
 }
 
 article{
@@ -15,15 +15,16 @@ article{
 }
 
 body{
-    background-color: #f8f6f6;
-    color: #707070;
+    background-color: #f6f7fa;
+    color: rgb(106, 106, 106);
 }    
 
 h1{
-    font-family: 'Roboto', sans-serif;
+    font-size: 2rem;
+    font-family: 'Mukta', sans-serif;
+    letter-spacing: 0.1rem;
     font-weight: 300;
-    letter-spacing: -1.5px;
-    font-size: 48px;
+    text-transform: uppercase;
 }
 
 h2{
@@ -56,33 +57,6 @@ main{
 
 /* 3. Components
 ======================================== */
-
-/*===============Navigation============= */
-nav li{
-    display: inline-flex;
-    justify-self: center;
-    margin: 0 2rem;
-
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    letter-spacing: 0.15px;
-    font-size: 20px;
-    text-transform: uppercase;
-}
-
-nav ul{
-    padding: 0;
-}
-
-nav a {
-    text-decoration: none;
-    color: #707070;
-}
-
-nav{
-    display: grid;
-    justify-content: space-around;
-}
 
 /*===============article-form============= */
 .article-form{
@@ -309,12 +283,50 @@ span{
     cursor: pointer;
 }
 
-.nav-dropdown{
-    position: absolute;
-    margin-top: 1.7rem;
-    display: inline-flex;
-    flex-direction: column;
+/*===============LOADING============= */
+
+.riple-container{
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    display: grid;
 }
+
+.lds-ripple {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ripple div {
+  position: absolute;
+  border: 4px solid rgb(56, 56, 56);
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+@keyframes lds-ripple {
+  0% {
+    top: 36px;
+    left: 36px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 0px;
+    left: 0px;
+    width: 72px;
+    height: 72px;
+    opacity: 0;
+  }
+}
+
 
 /*===============Button============= */
  .btn-primary{

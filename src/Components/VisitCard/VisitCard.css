@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@500&display=swap');
+
+.visit-card{
+    height: 100vh;
+    background-image: url('https://images.unsplash.com/photo-1567095761054-7a02e69e5c43?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80');
+    background-position: center;
+    color: rgb(221, 211, 226)
+}
+
+div.visit-card{
+    height: 100vh;
+    background: rgba(21, 13, 13, 0.439);
+    display: grid;
+}
+
+.visit-card-header{
+    margin: 0;
+    margin-top: 30vh;
+    font-size: 3.5rem;
+    justify-self: center;
+    align-self: flex-end;
+    font-family: 'Mukta', sans-serif;
+    letter-spacing: 0.5rem;
+    font-weight: 300;
+}
+
+#visit-card-container{
+    justify-self: center;
+    margin-bottom: 3rem;
+    line-height: 2rem;
+    max-width: 37vw;
+    text-align: center;
+}
