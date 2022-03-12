@@ -10,15 +10,20 @@ nav{
 
 .nav-dropdown{
     position: absolute;
-    margin-top: 4rem;
+    margin-top: 6rem;
     display: inline-flex;
     flex-direction: column;
+}
+
+.nav-dropdown li{
+    margin-top: 1rem;
 }
 
 nav li{
     display: inline-flex;
     justify-self: center;
     margin: 0 1rem;
+    cursor: pointer;
 
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
