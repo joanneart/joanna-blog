@@ -21,11 +21,13 @@ function App() {
   }
 
 
-  const photography = articles.filter(article => article.data.article_type==='photography');
-  const paintings = articles.filter(article => article.data.article_type==='painting');
-  const angels = articles.filter(article => article.data.article_type==='angel');
-  const murals = articles.filter(article => article.data.article_type==='mural');
-  const fashion = articles.filter(article => article.data.article_type==='fashion');
+  const photography = articles.filter(article => article.data.article_type==='Fotografia Artystyczna');
+  const sesje = articles.filter(article => article.data.article_type==='Sesje Zdjęciowe');
+  const photoReportage = articles.filter(article => article.data.article_type==='Reportaż');
+  const paintings = articles.filter(article => article.data.article_type==='Obrazy');
+  const angels = articles.filter(article => article.data.article_type==='Anioły');
+  const murals = articles.filter(article => article.data.article_type==='Murale');
+  const fashion = articles.filter(article => article.data.article_type==='Moda');
   const recent = [...articles].sort((a,b) => compareDates(a,b)).reverse();
 
   const toggleLoading3s = useCallback(() => {
@@ -44,8 +46,10 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Homepage articles={articles} />}/>
-          <Route path='/fotografia' element={<Homepage articles={photography} />}/>
+          <Route path='/fotografia_artystyczna' element={<Homepage articles={photography} />}/>
           <Route path='/obrazy' element={<Homepage articles={paintings} />}/>
+          <Route path='/sesje_zdjeciowe' element={<Homepage articles={sesje} />}/>
+          <Route path='/reportaze' element={<Homepage articles={photoReportage} />}/>
           <Route path='/anioly' element={<Homepage articles={angels} />}/>
           <Route path='/murale' element={<Homepage articles={murals} />}/>
           <Route path='/moda' element={<Homepage articles={fashion} />}/>

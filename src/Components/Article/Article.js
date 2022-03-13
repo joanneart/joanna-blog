@@ -6,13 +6,24 @@ import Comments from "../Comments";
 import Navigation from "../Navigation/Navigation";
 import Slider from "../Slider/Slider";
 import Thumbnail from '../Thumbnail/Thumbnail';
+import Grid from '../Grid/Grid';
+import Gallery from '../Gallery/Gallery';
 
 export default function Article({ isLoading, toggleLoading, articles, comments, addComment, updateComment}){
     let params = useParams();
     const [article, setArticle] = useState([]);
     const [date, setDate] = useState('');
+    const [galleryOpener, setGalleryOpener] = useState(false);
+    const [gallery, setGallery] = useState({});
 
     let current = articles.find(article => article.ref['@ref'].id===params.id);
+
+    const updateViewedPic = (viewed) => setGallery(prev => ({...prev, viewed}));
+
+    const openGallery = (newGallery) => {
+        setGalleryOpener(true);
+        setGallery(newGallery);
+    }
 
     useEffect(() => {
         setArticle(current ? current : [])
@@ -27,9 +38,11 @@ export default function Article({ isLoading, toggleLoading, articles, comments, 
     return (
         <>
         <Navigation/>
-        {isLoading ? <div className="riple-container"><div className="lds-ripple"><div></div><div></div></div></div> : 
+        {galleryOpener && <Gallery gallery={gallery} close={() => setGalleryOpener(false)} update={updateViewedPic}/>}
+        {isLoading && <div className="riple-container"><div className="lds-ripple"><div></div><div></div></div></div>}
         <main>
             <article>
+                {article.data && <p>z kategorii {article.data.article_type}</p>}
                 {article.data && article.data.article.map((part, key) => {
                     switch(part.type){
                         case 'h1':
@@ -46,6 +59,8 @@ export default function Article({ isLoading, toggleLoading, articles, comments, 
                             return <ul key={key}>{part.content.map((item, key) => <li key={key}>{item}</li>)}</ul>;
                         case 'slider':
                             return <Slider key={key} imgs={part.content}/>;
+                        case 'grid':
+                            return <Grid key={key} openGallery={openGallery} photos={part.content}/>
                         case 'img':
                             return <img src={part.content} alt='for the blog article'  key={key}/>;
                         default:
@@ -62,7 +77,7 @@ export default function Article({ isLoading, toggleLoading, articles, comments, 
                 <h2>Na czasie</h2>
                 {articles.map((article, key) => <Thumbnail key={key} article={article}/>)}
             </section>
-        </main>}
+        </main>
         </>
         
         
