@@ -13,6 +13,7 @@
 
 .gallery-images{
     justify-self: left;
+    align-items: center;
     display: grid;
     width: 16vw;
     height: 100vh;
