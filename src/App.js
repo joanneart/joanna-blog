@@ -7,6 +7,7 @@ import './App.css';
 
 import Homepage from './Components/Homepage';
 import Article from './Components/Article/Article';
+import Footer from './Components/Footer/Footer';
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -21,20 +22,22 @@ function App() {
   }
 
 
-  const photography = articles.filter(article => article.data.article_type==='Fotografia Artystyczna');
-  const sesje = articles.filter(article => article.data.article_type==='Sesje Zdjęciowe');
-  const photoReportage = articles.filter(article => article.data.article_type==='Reportaż');
-  const paintings = articles.filter(article => article.data.article_type==='Obrazy');
-  const angels = articles.filter(article => article.data.article_type==='Anioły');
-  const murals = articles.filter(article => article.data.article_type==='Murale');
-  const fashion = articles.filter(article => article.data.article_type==='Moda');
+
   const recent = [...articles].sort((a,b) => compareDates(a,b)).reverse();
+  const photography = recent.filter(article => article.data.article_type==='Fotografia Artystyczna');
+  const sesje = recent.filter(article => article.data.article_type==='Sesje Zdjęciowe');
+  const photoReportage = recent.filter(article => article.data.article_type==='Reportaż');
+  const paintings = recent.filter(article => article.data.article_type==='Obrazy');
+  const angels = recent.filter(article => article.data.article_type==='Anioły');
+  const murals = recent.filter(article => article.data.article_type==='Murale');
+  const fashion = recent.filter(article => article.data.article_type==='Moda');
+  const newest10=recent.slice(0,10);
 
   const toggleLoading3s = useCallback(() => {
     setIsLoading(prev => !prev)
     setTimeout(() => {
       setIsLoading(prev => !prev)
-    }, Math.random()*200+300)
+    }, Math.random()*200+600)
   },[])
 
   useEffect(() => {
@@ -45,16 +48,17 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Homepage articles={articles} />}/>
-          <Route path='/fotografia_artystyczna' element={<Homepage articles={photography} />}/>
-          <Route path='/obrazy' element={<Homepage articles={paintings} />}/>
-          <Route path='/sesje_zdjeciowe' element={<Homepage articles={sesje} />}/>
-          <Route path='/reportaze' element={<Homepage articles={photoReportage} />}/>
-          <Route path='/anioly' element={<Homepage articles={angels} />}/>
-          <Route path='/murale' element={<Homepage articles={murals} />}/>
-          <Route path='/moda' element={<Homepage articles={fashion} />}/>
-          <Route path='/aktualnosci' element={<Homepage articles={recent} />}/>
+          <Route path='/' element={<Homepage  newest10={newest10} articles={articles} />}/>
+          <Route path='/fotografia_artystyczna' element={<Homepage newest10={newest10} articles={photography} />}/>
+          <Route path='/obrazy' element={<Homepage newest10={newest10} articles={paintings} />}/>
+          <Route path='/sesje_zdjeciowe' element={<Homepage newest10={newest10} articles={sesje} />}/>
+          <Route path='/reportaze' element={<Homepage newest10={newest10} articles={photoReportage} />}/>
+          <Route path='/anioly' element={<Homepage newest10={newest10} articles={angels} />}/>
+          <Route path='/murale' element={<Homepage newest10={newest10} articles={murals} />}/>
+          <Route path='/moda' element={<Homepage newest10={newest10} articles={fashion} />}/>
+          <Route path='/aktualnosci' element={<Homepage newest10={newest10} articles={recent} />}/>
           <Route path='/article/:id' element={<Article 
+          newest10={newest10}
           isLoading={isLoading}
           toggleLoading={toggleLoading3s}
           articles={articles} 
@@ -65,6 +69,7 @@ function App() {
           addComment={(comment => setComments(prev => [comment, ...prev]))}/>}/>
         </Routes>
       </BrowserRouter>
+      <Footer />
     </div>
   );
 }

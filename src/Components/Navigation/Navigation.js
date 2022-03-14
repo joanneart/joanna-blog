@@ -9,8 +9,9 @@ export default function Navigation(){
     return(
         <header className="App-header">
         <nav>
-          <NavLink to='/'>
+          <NavLink to='/' className="nav-profile">
             <h1 id="nav-header">JOANNEART</h1>
+            <img src="../imgs/profile/profile.jpg" alt="profile"/>
           </NavLink>
           <ul>
 

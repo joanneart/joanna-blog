@@ -1,0 +1,28 @@
+footer{
+    background-image: url('../../../public/imgs/background/background.jpg');
+    background-position: bottom;
+    background-size: cover;
+    color: rgb(243, 238, 238)
+}
+
+.ico{
+    width: 24px;
+    filter: invert(100%)
+}
+
+footer a{
+    color: rgb(243, 238, 238)
+}
+
+.freepik{
+    margin-top: 3rem;
+    font-size: 0.6rem;
+}
+
+.footer-container{
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    padding: 10vh 10vw;
+    background: rgba(0, 0, 0, 0.385);
+}

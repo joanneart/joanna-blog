@@ -9,7 +9,7 @@ import Thumbnail from '../Thumbnail/Thumbnail';
 import Grid from '../Grid/Grid';
 import Gallery from '../Gallery/Gallery';
 
-export default function Article({ isLoading, toggleLoading, articles, comments, addComment, updateComment}){
+export default function Article({ newest10, isLoading, toggleLoading, articles, comments, addComment, updateComment}){
     let params = useParams();
     const [article, setArticle] = useState([]);
     const [date, setDate] = useState('');
@@ -74,8 +74,8 @@ export default function Article({ isLoading, toggleLoading, articles, comments, 
                 </section>
             </article>
             <section className="article-section">
-                <h2>Na czasie</h2>
-                {articles.map((article, key) => <Thumbnail key={key} article={article}/>)}
+                <h1>Najnowsze</h1>
+                {newest10.map((article, key) => <Thumbnail key={key} article={article}/>)}
             </section>
         </main>
         </>

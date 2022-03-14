@@ -9,6 +9,17 @@ nav{
     z-index: 2;
 }
 
+.nav-profile{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+nav img{
+    align-self: center;
+    max-height: 4rem;
+    margin-left: 1.5rem;
+}
+
 .nav-dropdown{
     position: absolute;
     top: 4rem;

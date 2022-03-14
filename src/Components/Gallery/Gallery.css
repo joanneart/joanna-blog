@@ -20,7 +20,7 @@
     overflow: scroll;
     gap: 0.3rem;
     justify-items: center;
-    background-color: rgba(0, 0, 0, 0.686);
+    backdrop-filter: blur(10px);
 }
 
 .gallery-images img{
