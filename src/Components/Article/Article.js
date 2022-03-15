@@ -9,12 +9,16 @@ import Thumbnail from '../Thumbnail/Thumbnail';
 import Grid from '../Grid/Grid';
 import Gallery from '../Gallery/Gallery';
 
+import DocumentMeta from 'react-document-meta';
+
 export default function Article({ newest10, isLoading, toggleLoading, articles, comments, addComment, updateComment}){
     let params = useParams();
     const [article, setArticle] = useState([]);
     const [date, setDate] = useState('');
     const [galleryOpener, setGalleryOpener] = useState(false);
     const [gallery, setGallery] = useState({});
+
+    const [meta, setMeta] = useState({});
 
     let current = articles.find(article => article.ref['@ref'].id===params.id);
 
@@ -26,17 +30,34 @@ export default function Article({ newest10, isLoading, toggleLoading, articles, 
     }
 
     useEffect(() => {
-        setArticle(current ? current : [])
+        console.log('current changed, or articles')
+        if(current){
+            setMeta({
+                title: current.data.title,
+                description: current.data.description,
+                meta: {
+                    property: {
+                        "og:image": `https://joanna-blog-users.netlify.app${current.data.img.slice(2)}`,
+                        "og:description": current.data.description,
+                        "og:title": current.data.title
+                    }
+                }
+            })
+            setArticle(current)
+        }
+        
         setDate(new Date(current ? current.data.date : ''))
     },[articles, current])
 
     useEffect(() => {
+        console.log('current changed, or toggleLoading')
         toggleLoading();
         window.scrollTo(0,0);
     },[current, toggleLoading])
 
     return (
         <>
+        <DocumentMeta {...meta}/>
         <Navigation/>
         {galleryOpener && <Gallery gallery={gallery} close={() => setGalleryOpener(false)} update={updateViewedPic}/>}
         {isLoading && <div className="riple-container"><div className="lds-ripple"><div></div><div></div></div></div>}

@@ -5,7 +5,7 @@ import { getAllArticles, getAllComments } from './api';
 
 import './App.css';
 
-import Homepage from './Components/Homepage';
+import Homepage from './Components/Homepage/Homepage';
 import Article from './Components/Article/Article';
 import Footer from './Components/Footer/Footer';
 
