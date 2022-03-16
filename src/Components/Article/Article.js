@@ -9,7 +9,9 @@ import Thumbnail from '../Thumbnail/Thumbnail';
 import Grid from '../Grid/Grid';
 import Gallery from '../Gallery/Gallery';
 
+import { useLocation } from 'react-router-dom';
 import DocumentMeta from 'react-document-meta';
+import { FacebookShareButton } from "react-share";
 
 export default function Article({ newest10, isLoading, toggleLoading, articles, comments, addComment, updateComment}){
     let params = useParams();
@@ -17,6 +19,7 @@ export default function Article({ newest10, isLoading, toggleLoading, articles, 
     const [date, setDate] = useState('');
     const [galleryOpener, setGalleryOpener] = useState(false);
     const [gallery, setGallery] = useState({});
+    const location = useLocation();
 
     const meta = {
         title: "Artykuł z bloga Joanneart",
@@ -86,6 +89,9 @@ export default function Article({ newest10, isLoading, toggleLoading, articles, 
                     }
                 })}
                 <p className="date">Dodano: {date && date.toLocaleDateString()}</p>
+                <FacebookShareButton url={`https://main--joanna-blog-users.netlify.app${location.pathname}`}>
+                    <button>Udostępnij</button>
+                </FacebookShareButton>
                 <section className="comments-container">
                     <AddComment articleId={params.id} addComment={addComment}/>
                     <Comments comments={comments}  articleId={params.id} updateComment={updateComment}/>
