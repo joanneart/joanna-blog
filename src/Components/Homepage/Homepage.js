@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Navigation from "../Navigation/Navigation";
 
 import VisitCard from "../VisitCard/VisitCard";
