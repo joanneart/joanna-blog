@@ -11,6 +11,7 @@ import Gallery from '../Gallery/Gallery';
 
 import { useLocation } from 'react-router-dom';
 import { FacebookShareButton } from "react-share";
+import { Helmet } from 'react-helmet';
 
 export default function Article({ newest10, isLoading, toggleLoading, articles, comments, addComment, updateComment}){
     let params = useParams();
@@ -44,6 +45,15 @@ export default function Article({ newest10, isLoading, toggleLoading, articles, 
 
     return (
         <>
+        <Helmet>
+            <title>blaaah</title>
+            <meta property="og:site_name" content="Agnieszka Maciąg"></meta>
+            <meta property="og:url" content="https://agnieszkamaciag.pl/prosty-makowiec-wilgotny-i-aromatyczny/"></meta>
+            <meta property="og:type" content="article"></meta>
+            <meta property="og:title" content="Przepyszny i bardzo prosty makowiec – wilgotny, aromatyczny, z jabłkami, bez mąki!"></meta>
+            <meta property="og:description" content="Nadal zastanawiam się, jakie ciasta przygotuję na te Święta. Mam tak wielu faworytów… Mak obowiązkowo musi być, ale może w tym roku zdradzę mój ulubiony ..."></meta>
+            <meta property="og:image" content="https://agnieszkamaciag.pl/wp-content/uploads/2015/12/2m-1.jpg"></meta>
+        </Helmet>
         <Navigation/>
         {galleryOpener && <Gallery gallery={gallery} close={() => setGalleryOpener(false)} update={updateViewedPic}/>}
         {isLoading && <div className="riple-container"><div className="lds-ripple"><div></div><div></div></div></div>}
