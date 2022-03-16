@@ -18,7 +18,17 @@ export default function Article({ newest10, isLoading, toggleLoading, articles, 
     const [galleryOpener, setGalleryOpener] = useState(false);
     const [gallery, setGallery] = useState({});
 
-    const [meta, setMeta] = useState({});
+    const meta = {
+        title: "Artykuł z bloga Joanneart",
+        description: "Artykuł z bloga Joanneart",
+        meta: {
+            property: {
+                "og:description": "Artykuł z bloga Joanneart",
+                "og:title": "Artykuł z bloga Joanneart"
+            },
+
+        }
+    }
 
     let current = articles.find(article => article.ref['@ref'].id===params.id);
 
@@ -30,19 +40,7 @@ export default function Article({ newest10, isLoading, toggleLoading, articles, 
     }
 
     useEffect(() => {
-        console.log('current changed, or articles')
         if(current){
-            setMeta({
-                title: current.data.title,
-                description: current.data.description,
-                meta: {
-                    property: {
-                        "og:image": `https://joanna-blog-users.netlify.app${current.data.img.slice(2)}`,
-                        "og:description": current.data.description,
-                        "og:title": current.data.title
-                    }
-                }
-            })
             setArticle(current)
         }
         
@@ -50,7 +48,6 @@ export default function Article({ newest10, isLoading, toggleLoading, articles, 
     },[articles, current])
 
     useEffect(() => {
-        console.log('current changed, or toggleLoading')
         toggleLoading();
         window.scrollTo(0,0);
     },[current, toggleLoading])

@@ -8,18 +8,18 @@ import Thumbnail from '../Thumbnail/Thumbnail';
 import DocumentMeta from 'react-document-meta';
 
 export default function Homepage({articles, newest10}){
-    const [meta, setMeta] = useState({});
 
-    useEffect(() => {
-        setMeta({
-            title: 'Joanneart',
-            meta: {
+    const meta = {
+        title: 'Joanneart',
+        description: "Oficjalny blog Joanny Dębiec",
+        meta: {
                 property: {
-                    "og:image": `https://joanna-blog-users.netlify.app/imgs/profile/profile.jpg`
+                    "og:image": "https://joanna-blog-users.netlify.app/imgs/profile/profile.jpg",
+                    "og:title": "Joanna Dębiec - oficjalny blog",
+                    "og:description": "Oficjalny blog Joanny Dębiec"
                 }
             }
-        })
-    },[])
+    }
 
     return(
         <>
