@@ -50,7 +50,7 @@ export default function Article({ newest10, isLoading, toggleLoading, articles, 
             <meta property="og:site_name" content="Agnieszka Maciąg"></meta>
             <meta property="og:url" content="https://agnieszkamaciag.pl/prosty-makowiec-wilgotny-i-aromatyczny/"></meta>
             <meta property="og:type" content="article"></meta>
-            <meta property="og:title" content="Przepyszny i bardzo prosty makowiec – wilgotny, aromatyczny, z jabłkami, bez mąki!"></meta>
+            <meta property="og:title" content={ current ? current.data.description : 'Artykuł z Bloga Joannneart'}></meta>
             <meta property="og:description" content="Nadal zastanawiam się, jakie ciasta przygotuję na te Święta. Mam tak wielu faworytów… Mak obowiązkowo musi być, ale może w tym roku zdradzę mój ulubiony ..."></meta>
             <meta property="og:image" content="https://agnieszkamaciag.pl/wp-content/uploads/2015/12/2m-1.jpg"></meta>
         </Helmet>
