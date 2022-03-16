@@ -47,9 +47,11 @@ export default function Article({ newest10, isLoading, toggleLoading, articles, 
         <>
         <Helmet>
             <title>{current ? current.data.title : 'Artykuł z Bloga Joannneart'}</title>
+            <meta property="og:url" content="https://joanneart.netlify.app"></meta>
             <meta property="og:site_name" content="Joanneart"></meta>
             <meta property="og:type" content="article"></meta>
             <meta property="og:title" content={ current ? current.data.description : 'Artykuł z Bloga Joannneart'}></meta>
+            <meta property="og:description" content={ current ? current.data.description : 'Artykuł z Bloga Joannneart'}></meta>
             <meta property="og:image" content={ current ? `https://joanneart.netlify.app${current.data.img.slice(2)}` : 'Artykuł z Bloga Joanneart'}></meta>
         </Helmet>
         <Navigation/>
