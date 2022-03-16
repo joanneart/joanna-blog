@@ -10,7 +10,6 @@ import Grid from '../Grid/Grid';
 import Gallery from '../Gallery/Gallery';
 
 import { useLocation } from 'react-router-dom';
-import DocumentMeta from 'react-document-meta';
 import { FacebookShareButton } from "react-share";
 
 export default function Article({ newest10, isLoading, toggleLoading, articles, comments, addComment, updateComment}){
@@ -57,7 +56,6 @@ export default function Article({ newest10, isLoading, toggleLoading, articles, 
 
     return (
         <>
-        <DocumentMeta {...meta}/>
         <Navigation/>
         {galleryOpener && <Gallery gallery={gallery} close={() => setGalleryOpener(false)} update={updateViewedPic}/>}
         {isLoading && <div className="riple-container"><div className="lds-ripple"><div></div><div></div></div></div>}
