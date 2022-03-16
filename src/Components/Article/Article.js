@@ -46,13 +46,11 @@ export default function Article({ newest10, isLoading, toggleLoading, articles, 
     return (
         <>
         <Helmet>
-            <title>blaaah</title>
-            <meta property="og:site_name" content="Agnieszka Maciąg"></meta>
-            <meta property="og:url" content="https://agnieszkamaciag.pl/prosty-makowiec-wilgotny-i-aromatyczny/"></meta>
+            <title>{current ? current.data.title : 'Artykuł z Bloga Joannneart'}</title>
+            <meta property="og:site_name" content="Joanneart"></meta>
             <meta property="og:type" content="article"></meta>
             <meta property="og:title" content={ current ? current.data.description : 'Artykuł z Bloga Joannneart'}></meta>
-            <meta property="og:description" content="Nadal zastanawiam się, jakie ciasta przygotuję na te Święta. Mam tak wielu faworytów… Mak obowiązkowo musi być, ale może w tym roku zdradzę mój ulubiony ..."></meta>
-            <meta property="og:image" content="https://agnieszkamaciag.pl/wp-content/uploads/2015/12/2m-1.jpg"></meta>
+            <meta property="og:image" content={ current ? `https://joanneart.netlify.app${current.data.img.slice(2)}` : 'Artykuł z Bloga Joanneart'}></meta>
         </Helmet>
         <Navigation/>
         {galleryOpener && <Gallery gallery={gallery} close={() => setGalleryOpener(false)} update={updateViewedPic}/>}
@@ -85,7 +83,7 @@ export default function Article({ newest10, isLoading, toggleLoading, articles, 
                     }
                 })}
                 <p className="date">Dodano: {date && date.toLocaleDateString()}</p>
-                <FacebookShareButton url={`https://main--joanna-blog-users.netlify.app${location.pathname}`}>
+                <FacebookShareButton url={`https://joanneart.netlify.app${location.pathname}`}>
                     <button>Udostępnij</button>
                 </FacebookShareButton>
                 <section className="comments-container">
