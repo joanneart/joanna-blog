@@ -4,6 +4,7 @@ import Navigation from "../Navigation/Navigation";
 import VisitCard from "../VisitCard/VisitCard";
 import Short from "../Short/Short";
 import Thumbnail from '../Thumbnail/Thumbnail';
+import { FacebookShareButton } from "react-share";
 
 import { Helmet } from "react-helmet";
 
@@ -25,6 +26,9 @@ export default function Homepage({articles, newest10}){
         <main>
             <div className='shorts'>
             {articles.map((article, key) => <Short article={article} key={key} />)}
+            <FacebookShareButton url={`https://main--joanna-blog-users.netlify.app`}>
+                    <button>Udostępnij</button>
+            </FacebookShareButton>
             </div>
             <section className='section'>
                 <h1>Najnowsze</h1>

@@ -20,18 +20,6 @@ export default function Article({ newest10, isLoading, toggleLoading, articles, 
     const [gallery, setGallery] = useState({});
     const location = useLocation();
 
-    const meta = {
-        title: "Artykuł z bloga Joanneart",
-        description: "Artykuł z bloga Joanneart",
-        meta: {
-            property: {
-                "og:description": "Artykuł z bloga Joanneart",
-                "og:title": "Artykuł z bloga Joanneart"
-            },
-
-        }
-    }
-
     let current = articles.find(article => article.ref['@ref'].id===params.id);
 
     const updateViewedPic = (viewed) => setGallery(prev => ({...prev, viewed}));
