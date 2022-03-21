@@ -16,7 +16,7 @@ export default function Gallery({gallery, close, update}){
                 className='gallery-images'
                 onMouseOver={() => setMouseOnElement(true)}
                 onMouseLeave={() => setMouseOnElement(false)}>
-                    {gallery.photos.map((photo, key) => <img alt={`pic from gallery number ${key}`} key={key} src={photo} onClick={() => update(photo)}/>)}
+                    {gallery.photos.map((photo, key) => <img alt={`pic from gallery number ${key}`} className={gallery.viewed===photo ? 'active-image' : null} key={key} src={photo} onClick={() => update(photo)}/>)}
                 </div>
         </div>
     )

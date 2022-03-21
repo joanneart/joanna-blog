@@ -11,7 +11,6 @@ export default function Navigation(){
         <nav>
           <NavLink to='/' className="nav-profile">
             <h1 id="nav-header">JOANNEART</h1>
-            <img src="../imgs/profile/profile.jpg" alt="profile"/>
           </NavLink>
           <ul>
 

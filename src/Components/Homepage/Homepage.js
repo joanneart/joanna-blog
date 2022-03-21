@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navigation from "../Navigation/Navigation";
 
 import VisitCard from "../VisitCard/VisitCard";
@@ -7,8 +7,18 @@ import Thumbnail from '../Thumbnail/Thumbnail';
 import { FacebookShareButton } from "react-share";
 
 import { Helmet } from "react-helmet";
+import { useLocation } from "react-router-dom";
 
 export default function Homepage({articles, newest10}){
+
+    let location = useLocation();
+
+    useEffect(() => {
+        if(location.pathname!=='/'){
+            window.scrollTo({top: 900, left: 0, behavior: 'smooth'});
+        }
+        
+    },[location])
 
     return(
         <>

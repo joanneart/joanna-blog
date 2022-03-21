@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { getAllArticles, getAllComments } from './api';
@@ -12,7 +12,6 @@ import Footer from './Components/Footer/Footer';
 function App() {
   const [articles, setArticles] = useState([]);
   const [comments, setComments] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
 
   
   const compareDates = (a,b) => {
@@ -20,8 +19,6 @@ function App() {
     const date2 = new Date(b.data.date);
     return date1.getTime()-date2.getTime()
   }
-
-
 
   const recent = [...articles].sort((a,b) => compareDates(a,b)).reverse();
   const photography = recent.filter(article => article.data.article_type==='Fotografia Artystyczna');
@@ -32,13 +29,6 @@ function App() {
   const murals = recent.filter(article => article.data.article_type==='Murale');
   const fashion = recent.filter(article => article.data.article_type==='Moda');
   const newest10=recent.slice(0,10);
-
-  const toggleLoading3s = useCallback(() => {
-    setIsLoading(prev => !prev)
-    setTimeout(() => {
-      setIsLoading(prev => !prev)
-    }, Math.random()*200+600)
-  },[])
 
   useEffect(() => {
     getAllArticles().then(articles => setArticles([...articles].reverse()))
@@ -59,8 +49,6 @@ function App() {
           <Route path='/aktualnosci' element={<Homepage newest10={newest10} articles={recent} />}/>
           <Route path='/article/:id' element={<Article 
           newest10={newest10}
-          isLoading={isLoading}
-          toggleLoading={toggleLoading3s}
           articles={articles} 
           comments={comments} 
           updateComment={(newComment, id) => setComments(prev => prev.map(comment => {

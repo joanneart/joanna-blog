@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@500&display=swap');
+
+$background: url('https://images.unsplash.com/photo-1617055669577-64245d59b81a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80');
+
+.visit-card{
+    height: 100vh;
+    background-image: $background;
+    background-position: center;
+    background-size: cover;
+    color: rgb(243, 238, 238);
+    text-align: center;
+    .profile-img{
+        object-fit: contain;
+        width: 20rem;
+        align-self: center;
+        justify-self: center;
+    }
+}
+
+.visit-card p{
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-style: italic;
+}
+
+div.visit-card{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    div{
+        align-items: center;
+        align-content: center;
+        display: grid;
+    }
+}
+
+.visit-card-header{
+    margin: 0;
+    font-size: 3.5rem;
+    font-family: 'Mukta', sans-serif;
+    letter-spacing: 0.5rem;
+    font-weight: 300;
+    max-width: 37vw;
+}
+
+#visit-card-container{
+    line-height: 2rem;
+    max-width: 37vw;
+    text-align: center;
+}
+
+
+@media only screen and (max-width: 1300px) {
+    div.visit-card{
+        grid-template-columns: 1fr ;
+        justify-content: center;
+        justify-items: center;
+    }
+    .visit-card-header{
+        margin-top: 10vh;
+    }
+  }

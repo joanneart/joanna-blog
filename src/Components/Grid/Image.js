@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
-export default function GalleryImage({photo, photos, openGallery, id}){
+export default function GalleryImage({photo, photos, openGallery, id, addLoaded}){
     const [ratio, setRatio] = useState(0);
-    useEffect(() => {
-            const image = new Image();
-            image.src = photo;
-            image.onload = () => setRatio(image.width/image.height);
-    }, [photo])
     return(
         <img 
+            onLoad={(e) => {
+                addLoaded();
+                setRatio(e.target.width/e.target.height);
+            }}
             onClick={() => openGallery({viewed: photo, photos})}
             src={photo} 
             className={`${ratio < 1 ? 'vertical' : ''}`}

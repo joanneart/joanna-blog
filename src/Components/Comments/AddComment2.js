@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { updateComment as updateCommentServer } from "../api";
+import { updateComment as updateCommentServer } from "../../api";
 
 export default function AddComment({comment, updateComment}){
     const [myComment, setComment] = useState('');
