@@ -20,7 +20,7 @@ export default function Homepage({articles, newest10}){
         if(articles.length && (loadedCouter>=articles.length)){
             setLoading(false);
         }
-    },[loadedCouter])
+    },[loadedCouter, articles.length])
     useEffect(() => {
         return () => {
             setCounter(0);

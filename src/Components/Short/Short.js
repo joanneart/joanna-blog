@@ -11,7 +11,7 @@ export default function Short({article, load}){
             load();
         }, 2000)
         return () => clearTimeout(timeoutId)
-    },[location.pathname])
+    },[location.pathname, load])
     return(
         <Link to={`/article/${article.ref['@ref'].id}`}>
             <div className="short">
