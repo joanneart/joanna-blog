@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Navigation from "../Navigation/Navigation";
 
 import VisitCard from "../VisitCard/VisitCard";
@@ -10,12 +10,30 @@ import { Helmet } from "react-helmet";
 import { useLocation } from "react-router-dom";
 
 export default function Homepage({articles, newest10}){
+    const[isLoading, setLoading] = useState(true);
+    const[loadedCouter, setCounter] = useState(0);
 
-    let location = useLocation();
+    const location = useLocation();
+
+    useEffect(() => {
+        console.log(loadedCouter)
+        if(articles.length && (loadedCouter>=articles.length)){
+            setLoading(false);
+        }
+    },[loadedCouter])
+    useEffect(() => {
+        return () => {
+            setCounter(0);
+            setLoading(true);
+        }
+    },[location.pathname])
+
 
     useEffect(() => {
         if(location.pathname!=='/'){
             window.scrollTo({top: 900, left: 0, behavior: 'smooth'});
+        }else{
+            window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
         }
         
     },[location])
@@ -32,10 +50,11 @@ export default function Homepage({articles, newest10}){
             <meta property="og:image" content="https://joanneart.netlify.app/imgs/profile/profile.jpg"></meta>
         </Helmet>
         <Navigation/>
+        {isLoading && <div className="riple-container"><div className="lds-ripple"><div></div><div></div></div></div>}
         <VisitCard />
         <main>
             <div className='shorts'>
-            {articles.map((article, key) => <Short article={article} key={key} />)}
+            {articles.map((article, key) => <Short load={() => setCounter(prev => prev+1)} article={article} key={key} />)}
             <FacebookShareButton url={`https://joanneart.netlify.app`}>
                     <button>Udostępnij</button>
             </FacebookShareButton>
