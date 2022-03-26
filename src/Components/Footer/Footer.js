@@ -4,7 +4,7 @@ import React from "react";
 export default function Footer(){
     return(
         <footer>
-            <div className='footer-container'>
+            <div className='footer-container' id='kontakt'>
                 <h1>Kontakt</h1>
                 <p>Joanna Dębiec</p>
                 <p>e-mail: <a href="mailto: daridebiec@gmail.com">daridebiec@gmail.com</a></p>

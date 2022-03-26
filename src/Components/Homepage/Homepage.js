@@ -1,19 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Navigation from "../Navigation/Navigation";
 
 import VisitCard from "../VisitCard/VisitCard";
 import Short from "../Short/Short";
 import Thumbnail from '../Thumbnail/Thumbnail';
-import { FacebookShareButton } from "react-share";
 
 import { Helmet } from "react-helmet";
 import { useLocation } from "react-router-dom";
+import Share from "../Share/Share";
 
 export default function Homepage({articles, newest10}){
     const[isLoading, setLoading] = useState(true);
     const[loadedCouter, setCounter] = useState(0);
 
     const location = useLocation();
+
+    const load = useCallback(() => {
+        setCounter(prev => prev+1)
+    },[])
 
     useEffect(() => {
         console.log(loadedCouter)
@@ -31,9 +35,9 @@ export default function Homepage({articles, newest10}){
 
     useEffect(() => {
         if(location.pathname!=='/'){
-            window.scrollTo({top: 900, left: 0, behavior: 'smooth'});
+            window.scrollTo({top: 900});
         }else{
-            window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+            window.scrollTo({top: 0});
         }
         
     },[location])
@@ -54,10 +58,8 @@ export default function Homepage({articles, newest10}){
         <VisitCard />
         <main>
             <div className='shorts'>
-            {articles.map((article, key) => <Short load={() => setCounter(prev => prev+1)} article={article} key={key} />)}
-            <FacebookShareButton url={`https://joanneart.netlify.app`}>
-                    <button>Udostępnij</button>
-            </FacebookShareButton>
+            {articles.map((article, key) => <Short load={load} article={article} key={key} />)}
+            <Share url={"https://joanneart.netlify.app"}/>
             </div>
             <section className='section'>
                 <h1>Najnowsze</h1>

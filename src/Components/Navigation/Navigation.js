@@ -39,6 +39,9 @@ export default function Navigation(){
           </li>
             <NavLink to='/moda'><li>Moda</li></NavLink>
             <NavLink to='/aktualnosci'><li>Aktualności</li></NavLink>
+            <li onClick={() => {
+              document.querySelector('#kontakt').scrollIntoView({behavior: 'smooth'})
+            }}>Kontakt</li>
           </ul>
         </nav>
       </header>
