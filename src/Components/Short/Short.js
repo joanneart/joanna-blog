@@ -1,10 +1,10 @@
-import './Short.css';
+import './Short.scss';
 
 import React, { useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function Short({article, load}){
-
+    const navigate = useNavigate();
     const location = useLocation();
     useEffect(() => {
         const timeoutId = setTimeout(() => {
@@ -13,15 +13,13 @@ export default function Short({article, load}){
         return () => clearTimeout(timeoutId)
     },[location.pathname, load])
     return(
-        <Link to={`/article/${article.ref['@ref'].id}`}>
-            <div className="short">
-                <section>
-                    <h3>{article.data.title}</h3>
-                    <p>{article.data.description}</p>
-                </section>
-                <img src={article.data.img} onLoad={() => load()} alt={`blog article ${article.data.title}`} />
-            </div>
-        </Link>
         
+            <section className='big-thumbnail' onClick={() => navigate(`/article/${article.ref['@ref'].id}`)}>
+                <div className='container'>
+                    <h4>{article.data.title}</h4>
+                    <p>{article.data.description}</p>
+                </div>
+                <img src={article.data.img} onLoad={() => load()} alt={`blog article ${article.data.title}`} />
+            </section>
     )
 }

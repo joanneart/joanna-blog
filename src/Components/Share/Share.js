@@ -9,11 +9,11 @@ export default function Share({url}){
 
     return(
         <div className='share'>
-            <button onClick={() => setOpener(true)}>Udostępnij</button>
+            <button className='success' onClick={() => setOpener(true)}>Udostępnij</button>
             {isOpen && <div className='share-container'><div className='share-popup'>
                 <div className="popup-nav">
-                    <p>Udostępnij</p>
-                    <button onClick={() => setOpener(false)}>x</button>
+                    <span>Udostępnij</span>
+                    <button className='warning' onClick={() => setOpener(false)}>x</button>
                 </div>
                 <div className='popup-container'>
                 <EmailShareButton url={url}>

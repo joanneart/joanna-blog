@@ -1,12 +1,11 @@
 import React, { useCallback, useEffect, useState } from "react";
-import Navigation from "../Navigation/Navigation";
 
 import VisitCard from "../VisitCard/VisitCard";
 import Short from "../Short/Short";
 import Thumbnail from '../Thumbnail/Thumbnail';
 
 import { Helmet } from "react-helmet";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Share from "../Share/Share";
 
 export default function Homepage({articles, newest10}){
@@ -14,13 +13,13 @@ export default function Homepage({articles, newest10}){
     const[loadedCouter, setCounter] = useState(0);
 
     const location = useLocation();
+    const navigate = useNavigate();
 
     const load = useCallback(() => {
         setCounter(prev => prev+1)
     },[])
 
     useEffect(() => {
-        console.log(loadedCouter)
         if(articles.length && (loadedCouter>=articles.length)){
             setLoading(false);
         }
@@ -32,6 +31,14 @@ export default function Homepage({articles, newest10}){
         }
     },[location.pathname])
 
+    useEffect(() => {
+        const timeoutID = setTimeout(() => {
+            if(isLoading){
+                navigate('/timeout')
+            }
+        },5000)
+        return () => clearTimeout(timeoutID);
+    },[isLoading, navigate])
 
     useEffect(() => {
         if(location.pathname!=='/'){
@@ -53,7 +60,6 @@ export default function Homepage({articles, newest10}){
             <meta property="og:description" content='Jest we mnie piękna, ciekawa świata istota o bogatej wyobraźni, która swoim uśmiechem i "magią rąk" sprawia, że świat nabiera barw...a ja ją biorę z miłością za rękę i malujemy, fotografujemy, sprawiając radość i zmieniając świat.'></meta>
             <meta property="og:image" content="https://joanneart.netlify.app/imgs/profile/profile.jpg"></meta>
         </Helmet>
-        <Navigation/>
         {isLoading && <div className="riple-container"><div className="lds-ripple"><div></div><div></div></div></div>}
         <VisitCard />
         <main>

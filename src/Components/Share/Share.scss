@@ -25,6 +25,7 @@ $border: 1px solid $color;
         transition-duration: 0.3s;
         &:hover{
             margin: 0 1rem;
+            filter: none;
         }
     }
 }
@@ -33,23 +34,13 @@ $border: 1px solid $color;
     align-self: flex-start;
     width: 100%;
     display: grid;
-    background-color: #936ad1;
-    color: #e8e8e8;
-    p{
-        justify-self: center;
+    text-align: center;
+    span{
+        margin: 1rem 0;
     }
     button{
         position: absolute;
-        margin: 1rem;
         justify-self: flex-end;
-        background: none;
-        border: none;
-        color: $color;
-        cursor: pointer;
-        color: #e8e8e8;
-        &:hover{
-            color:#ffffff;
-        }
     }
 }
 .popup-container{

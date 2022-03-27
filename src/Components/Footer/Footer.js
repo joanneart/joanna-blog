@@ -6,8 +6,8 @@ export default function Footer(){
         <footer>
             <div className='footer-container' id='kontakt'>
                 <h1>Kontakt</h1>
-                <p>Joanna Dębiec</p>
-                <p>e-mail: <a href="mailto: daridebiec@gmail.com">daridebiec@gmail.com</a></p>
+                <span>Joanna Dębiec</span>
+                <span>e-mail: <a href="mailto: daridebiec@gmail.com">daridebiec@gmail.com</a></span>
                 <div className='icon-container'>
                     <a href="https://www.facebook.com/JoanneArt-115784413667108"><img alt="facebook icon" src='../imgs/utils/fb.svg' className="ico" /></a>
                 </div>

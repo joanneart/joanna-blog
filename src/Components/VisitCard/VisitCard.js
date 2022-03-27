@@ -3,8 +3,7 @@ import React from "react";
 
 export default function VisitCard(){
     return(
-        <section className="visit-card">
-            <div className="visit-card">
+        <header>
                 <img src="../imgs/profile/profile.jpg" alt="profile" className='profile-img'/>
                 <div>
                     <h1 className="visit-card-header">JOANNA DĘBIEC</h1>
@@ -14,8 +13,6 @@ export default function VisitCard(){
                             barw...a ja ją biorę z miłością za rękę i malujemy, fotografujemy, sprawiając radość i zmieniając świat.</p>
                     </div>
                 </div>
-                
-            </div>
-        </section>
+        </header>
     )
 }

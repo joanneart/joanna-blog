@@ -1,16 +1,17 @@
-import './Thumbnail.css';
+import './Thumbnail.scss';
 
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Thumbnail({article}){
+    const navigate = useNavigate();
     return(
-        <Link  className="thumbnail" to={`/article/${article.ref['@ref'].id}`}>
+        <section className='thumbnail small-thumbnail' style={{backgroundImage: `url(${article.data.img})`}}>
+            <h4>{article.data.title.toLowerCase()}</h4>
+            <nav>
+                <button className='primary' onClick={() => navigate(`/article/${article.ref['@ref'].id}`)}>Zobacz</button>
+            </nav>
             
-            <div className='thumbnail-darkener'>
-                <p className='thumbnail-title'>{article.data.title}</p>
-            </div>
-            <img src={article.data.img} alt={`blog article ${article.data.title}`} />
-        </Link>
+        </section>
     )
 }

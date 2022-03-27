@@ -1,4 +1,4 @@
-import './Grid.css'
+import './Grid.scss'
 import React, { useEffect } from "react";
 import Image from "./Image"
 

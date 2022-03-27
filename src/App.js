@@ -4,10 +4,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { getAllArticles, getAllComments } from './api';
 
 import './App.css';
+import './MyTemplate.scss';
 
 import Homepage from './Components/Homepage/Homepage';
 import Article from './Components/Article/Article';
 import Footer from './Components/Footer/Footer';
+import Timeout from './Components/Timeout';
+import Navigation from './Components/Navigation/Navigation';
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -55,7 +58,9 @@ function App() {
             return comment.ref['@ref'].id===id ? newComment : comment;
           }))} 
           addComment={(comment => setComments(prev => [comment, ...prev]))}/>}/>
+          <Route path='/timeout' element={<Timeout />}/>
         </Routes>
+        <Navigation/>
       </BrowserRouter>
       <Footer />
     </div>

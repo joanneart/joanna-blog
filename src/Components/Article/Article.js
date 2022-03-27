@@ -3,15 +3,14 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import AddComment from "../Comments/AddComment";
 import Comments from "../Comments/Comments";
-import Navigation from "../Navigation/Navigation";
 import Slider from "../Slider/Slider";
 import Thumbnail from '../Thumbnail/Thumbnail';
 import Grid from '../Grid/Grid';
 import Gallery from '../Gallery/Gallery';
 
 import { useLocation } from 'react-router-dom';
-import { FacebookShareButton } from "react-share";
 import { Helmet } from 'react-helmet';
+import Share from '../Share/Share';
 
 export default function Article({ newest10, articles, comments, addComment, updateComment}){
     const [loaded, setLoaded] = useState(0);
@@ -63,7 +62,6 @@ export default function Article({ newest10, articles, comments, addComment, upda
             <meta property="og:description" content={ current ? current.data.description : 'Artykuł z Bloga Joannneart'}></meta>
             <meta property="og:image" content={ current ? `https://joanneart.netlify.app${current.data.img.slice(2)}` : 'Artykuł z Bloga Joanneart'}></meta>
         </Helmet>
-        <Navigation/>
         {galleryOpener && <Gallery gallery={gallery} close={() => setGalleryOpener(false)} update={updateViewedPic}/>}
         {isLoading && <div className="riple-container"><div className="lds-ripple"><div></div><div></div></div></div>}
         <main>
@@ -94,17 +92,14 @@ export default function Article({ newest10, articles, comments, addComment, upda
                     }
                 })}
                 <p className="date">Dodano: {date && date.toLocaleDateString()}</p>
-                <FacebookShareButton url={`https://joanneart.netlify.app${location.pathname}`}>
-                <img alt="facebook icon" src='../imgs/utils/fb.svg' className="ico" />
-                    Udostępnij
-                </FacebookShareButton>
+                <Share url={`https://joanneart.netlify.app${location.pathname}`} />
                 <section className="comments-container">
                     <AddComment articleId={params.id} addComment={addComment}/>
                     <Comments comments={comments}  articleId={params.id} updateComment={updateComment}/>
                 </section>
             </article>}
             <section className="article-section">
-                <h1>Najnowsze</h1>
+                <h4>Najnowsze</h4>
                 {newest10.map((article, key) => <Thumbnail key={key} article={article}/>)}
             </section>
         </main>

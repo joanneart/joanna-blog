@@ -1,129 +1,3 @@
-/* 1. Fonts
-======================================== */
-
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto:wght@300;400;500&display=swap');
-
-/* 2. Global Styles
-======================================== */
-a{
-    text-decoration: none;
-    color: rgb(106, 106, 106);
-}
-
-article{
-    padding: 5vh 5vw;
-}
-
-body{
-    background-color: #f6f7fa;
-    color: rgb(106, 106, 106);
-}    
-
-h1{
-    font-size: 2rem;
-    font-family: 'Mukta', sans-serif;
-    letter-spacing: 0.1rem;
-    font-weight: 300;
-    text-transform: uppercase;
-}
-
-h2{
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    letter-spacing: 0px;
-    font-size: 36px;
-}
-
-h3{
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    letter-spacing: 0.15px;
-    font-size: 28px;
-}
-
-p{
-    font-family: 'Lato', sans-serif;
-    font-weight: 400;
-    letter-spacing: 0.15px;
-    font-size: 17px;
-}
-
-main{
-    display: grid;
-    margin: 0 10vw;
-    grid-template-columns: 2fr 1fr ;
-    gap: 0 5vw;
-}
-
-/* 3. Components
-======================================== */
-
-
-/*===============ARTICLE============= */
-article{
-    margin: 10vh 0;
-    justify-items: center;
-    justify-content: center;
-}
-
-article h1{
-    margin: 0 0 15px 0;
-}
-
-article h2{
-    margin: 0 0 15px 0;
-}
-
-article h3{
-    margin: 0 0 15px 0;
-}
-
-article p{
-    margin: 0 0 15px 0;
-}
-
-article ul{
-    margin: 0 0 15px 0;
-}
-
-article img{
-    max-height: 50vh;
-    width: 100%;
-    object-fit: contain;
-    margin: 0 0 15px 0;
-}
-
-article section{
-    display: grid;
-    gap: 1rem;
-}
-
-/*===============POLECANE============= */
-.section{
-    margin: 10vh 0;
-}
-
-/* 3. Colors
-======================================== */
-
-.warning{
-    background-color: #8c0032;
-    color: rgb(235, 235, 235);
-    border: none;
-}
-
-.primary{
-    background-color: #8052c6;
-    color: rgb(235, 235, 235);
-    border: none;
-}
-
-.standard{
-    background-color: #ebebeb;
-    border: 1px solid rgb(56, 56, 56);
-    color: rgb(56, 56, 56);
-}
-
 /*===============LOADING============= */
 
 .riple-container{
@@ -171,27 +45,16 @@ article section{
   }
 }
 
+div.error{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(238, 238, 238);
+}
 
-/*===============Button============= */
- .btn-primary{
-    padding: 0.5rem;
-    
-    background-color: #8052c6;
-    color: rgb(235, 235, 235);
-    border: none;
-    transition-duration: 0.3s;
-    cursor: pointer;
- }
-
- .btn-primary:hover{
-    background-color: #8e63ce;
- }
-
-@media only screen and (max-width: 1300px) {
-    html{
-        font-size: 12px;
-    }
-    main{
-        grid-template-columns: 1fr ;
-    }
-  }
+main{
+  margin-top: 8rem;
+}

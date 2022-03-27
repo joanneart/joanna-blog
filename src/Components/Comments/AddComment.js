@@ -20,13 +20,12 @@ export default function AddComment({articleId, addComment}){
             <button onClick={(e) => {
                 e.preventDefault();
                 setIsCommenting(false);
-            }}>Zamknij</button>
-            <label htmlFor="name">Imię</label>
-            <input name="name" className="name" type="text" value={author} onChange={(e) => setAuthor(e.target.value)}/>
-            <label htmlFor="comment">Komentarz</label>
-            <textarea name="comment" className="comment" rows="4" value={comment} onChange={(e) => setComment(e.target.value)}/>
-            <button>Dodaj komentarz</button>
-        </form> : <button className="btn-primary" onClick={(e) => {
+            }}
+            className="transparent-warning rounded">Zamknij</button>
+            <input placeholder="Imię i nazwisko" name="name" className="name" type="text" value={author} onChange={(e) => setAuthor(e.target.value)}/>
+            <textarea placeholder="Twój komentarz..." name="comment" className="comment" rows="4" value={comment} onChange={(e) => setComment(e.target.value)}/>
+            <button className="success">Dodaj komentarz</button>
+        </form> : <button className="primary" onClick={(e) => {
             e.preventDefault();
             setIsCommenting(true);
         }}>Skomentuj</button>
