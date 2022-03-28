@@ -225,7 +225,7 @@ nav.main{
     @include fixed;
     background: linear-gradient(0deg, $low-opacity, $background-color);
     backdrop-filter: $backdrop-filter;
-    z-index: 10;
+    z-index: 2;
     ul{
         align-items: flex-start;
         display: flex;
