@@ -1,12 +1,15 @@
 import './Navigation.css';
 import React, { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 
-export default function Navigation(){
+export default function Navigation({articles}){
   const [isPhotographyOpen, setPhototgraphy] = useState(false);
   const [PaintingsOpener, setPaintings] = useState(false);
   const [burgerOpen, setBurger] = useState(false);
+  const [isSearching, setSearcher] = useState(false);
+  const [search, setSearch] = useState('');
   const navigate = useNavigate();
+  const [results, setResults] = useState([]);
 
     return(
       <>
@@ -44,6 +47,27 @@ export default function Navigation(){
               e.preventDefault();
               document.querySelector('#kontakt').scrollIntoView({behavior: 'smooth'})
             }}>Kontakt</NavLink></li>
+            <li>
+              <span className='search-icon' onClick={() => setSearcher(prev => !prev)}>🔍︎</span>
+            </li>
+            {<li>
+              <form className='form-inline' style={{width: isSearching? 'auto': '0px', overflow: 'hidden'}}>
+                <input type="search" value={search} onChange={(e) => {
+                  setSearch(e.target.value);
+                  if(e.target.value.length){
+                    setResults(articles.filter(article => article.data.title.toLowerCase().includes(e.target.value.toLowerCase())))
+                  }else{
+                    setResults([]);
+                  }
+                }} placeholder='szukaj...'/>
+              </form>
+              <>
+                {results.slice(0,3).map((result, key) => <Link key={key} onClick={() => {
+                  setSearch('');
+                  setResults([]);
+                }} to={`/article/${result.ref['@ref'].id}`}>{`${result.data.title.slice(0,20)}${result.data.title.length>20 ? '...' : ''}`}</Link>)}
+              </>
+            </li>}
           </ul>
         </nav>
         <nav className='burger'>

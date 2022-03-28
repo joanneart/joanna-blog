@@ -85,6 +85,8 @@ main{
 }
 
 header{
+    background-size: cover;
+    background-position: center;
     padding: 4rem 15vw;
     gap: $gap2;
     display: grid;
@@ -225,6 +227,7 @@ nav.main{
     backdrop-filter: $backdrop-filter;
     z-index: 10;
     ul{
+        align-items: flex-start;
         display: flex;
         flex-direction: row;
         list-style: none;
@@ -286,6 +289,40 @@ nav.burger{
         &{
             display: grid;
         }
+    }
+}
+
+.search-icon{
+    cursor: pointer;
+    padding: $padding2;
+}
+
+.search-results{
+    list-style: none;
+    display: grid;
+    align-items: flex-start;
+    position: fixed;
+    top: 100px;
+    right: 0;
+    li{
+        background-color: $background-color;
+        text-align: center;
+        padding: $padding2;
+        font-family: $font-family;
+    }
+}
+
+.form-inline{
+    background: none;
+    margin: 0;
+    padding: 0;
+    box-shadow: unset;
+    transition-duration: $transition-duration;
+    border-radius: 0px;
+    input{
+        font-size: calc($font-size*0.8);
+        box-shadow: unset;
+        border-radius: 0px;
     }
 }
 

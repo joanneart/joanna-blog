@@ -60,7 +60,7 @@ function App() {
           addComment={(comment => setComments(prev => [comment, ...prev]))}/>}/>
           <Route path='/timeout' element={<Timeout />}/>
         </Routes>
-        <Navigation/>
+        <Navigation articles={articles}/>
       </BrowserRouter>
       <Footer />
     </div>

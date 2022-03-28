@@ -3,7 +3,7 @@ $white: rgb(238, 238, 238);
 
 header{
     grid-template-columns: 1fr 1fr;
-    background: $background;
+    background-image: $background;
     background-position: center;
     color: $white;
     text-align: center;
