@@ -18,6 +18,8 @@ export default function Short({article, load}){
                 <div className='container'>
                     <h4>{article.data.title}</h4>
                     <p>{article.data.description}</p>
+                    <span>Dodano {new Date(article.data.date).toLocaleDateString()}</span>
+                    <span>Z Kategorii {article.data.article_type}</span>
                 </div>
                 <img src={article.data.img} onLoad={() => load()} alt={`blog article ${article.data.title}`} />
             </section>

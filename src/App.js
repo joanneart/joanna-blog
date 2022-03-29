@@ -30,7 +30,7 @@ function App() {
   const paintings = recent.filter(article => article.data.article_type==='Obrazy');
   const angels = recent.filter(article => article.data.article_type==='Anioły');
   const murals = recent.filter(article => article.data.article_type==='Murale');
-  const fashion = recent.filter(article => article.data.article_type==='Moda');
+  const blog = recent.filter(article => article.data.article_type==='Blog');
   const newest10=recent.slice(0,10);
 
   useEffect(() => {
@@ -48,7 +48,7 @@ function App() {
           <Route path='/reportaze' element={<Homepage newest10={newest10} articles={photoReportage} />}/>
           <Route path='/anioly' element={<Homepage newest10={newest10} articles={angels} />}/>
           <Route path='/murale' element={<Homepage newest10={newest10} articles={murals} />}/>
-          <Route path='/moda' element={<Homepage newest10={newest10} articles={fashion} />}/>
+          <Route path='/blog' element={<Homepage newest10={newest10} articles={blog} />}/>
           <Route path='/aktualnosci' element={<Homepage newest10={newest10} articles={recent} />}/>
           <Route path='/article/:id' element={<Article 
           newest10={newest10}

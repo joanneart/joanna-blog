@@ -1,6 +1,6 @@
 import './Navigation.css';
 import React, { useState } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 
 export default function Navigation({articles}){
   const [isPhotographyOpen, setPhototgraphy] = useState(false);
@@ -10,7 +10,6 @@ export default function Navigation({articles}){
   const [search, setSearch] = useState('');
   const navigate = useNavigate();
   const [results, setResults] = useState([]);
-
     return(
       <>
         <nav className='main'>
@@ -41,7 +40,7 @@ export default function Navigation({articles}){
           <NavLink to='/anioly'>Anioły</NavLink>
           </>}</li>
             
-            <li><NavLink to='/moda'>Moda</NavLink></li>
+            <li><NavLink to='/blog'>Blog</NavLink></li>
             <li><NavLink to='/aktualnosci'>Aktualności</NavLink></li>
             <li><NavLink to="/nowhere"  onClick={(e) => {
               e.preventDefault();
@@ -71,10 +70,10 @@ export default function Navigation({articles}){
           </ul>
         </nav>
         <nav className='burger'>
-          <div onClick={() => {
+          {useLocation().pathname!=='/' && <div onClick={() => {
             navigate(-1);
             setBurger(false);
-          }} className='back'>← Go back</div>
+          }} className='back'>← Go back</div>}
           <div className='container' onClick={() => setBurger(prev => !prev)}>
             <div className='line'></div>
             <div className='line'></div>
@@ -84,7 +83,7 @@ export default function Navigation({articles}){
             <li><NavLink onClick={() => setBurger(false)} to='/murale'>Murale</NavLink></li>
             <li><NavLink onClick={() => setBurger(false)} to='/obrazy'>Obrazy</NavLink></li>
             <li><NavLink onClick={() => setBurger(false)} to='/anioly'>Anioły</NavLink></li>
-            <li><NavLink onClick={() => setBurger(false)} to='/moda'>Moda</NavLink></li>
+            <li><NavLink onClick={() => setBurger(false)} to='/blog'>Blog</NavLink></li>
             <li><NavLink onClick={() => setBurger(false)} to='/aktualnosci'>Aktualności</NavLink></li>
             <li><NavLink onClick={(e) => {
               e.preventDefault();

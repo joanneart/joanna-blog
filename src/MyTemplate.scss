@@ -32,8 +32,10 @@ $gradient2: linear-gradient(90deg, $color-primary2, $color-primary);
 $gradient: linear-gradient(90deg, $color-secondary, $color-primary2);
 $backdrop-filter: blur(2px);
 $box-shadow: 0 3px 7px -2px #333;
+$text-shadow: 0 3px 3px #333;
 $border-radius: 0.5rem;
 $max-width-screen: 850px;
+$max-width-screen2: 1300px;
 $thumbnail-content: 'Zobacz artykuł';
 $transition-duration: 0.2s;
 @mixin setupfont($size: 1rem, $weight: 300, $font: $font-family){
@@ -73,9 +75,15 @@ body{
 main{
     padding: 4rem 15vw;
     display: grid;
-    grid-template-columns: 5fr 1fr;
+    grid-template-columns: 3fr 1fr;
     align-items: baseline;
     gap: $gap2;
+    @media only screen and (max-width: $max-width-screen2) {
+        &{
+            grid-template-columns: 2fr 1fr;
+            padding: 4rem 10vw;
+        }
+    }
     @media only screen and (max-width: $max-width-screen) {
         &{
             grid-template-columns: 1fr;
@@ -359,6 +367,7 @@ $slider-height: 300px;
     transition: 1s;
     width: $slider-width;
     .container{
+        transition: 1s;
         display: flex;
         height: 100%;
         width: 600%; // width uzależniony od ilości zdjęć
@@ -374,7 +383,8 @@ $slider-height: 300px;
         width: 100%;
         display: flex;
         justify-content: center;
-        margin-top: -4rem;
+        margin-top: -2rem;
+        padding: 0;
     }
     @media only screen and (max-width: 1300px) {
         &{
@@ -479,7 +489,7 @@ section.text-2cols{
     }
 }
 
-.thumbnail, .big-thumbnail{
+.thumbnail, .big-thumbnail, .small-thumbnail{
     background-position: center;
     background-size: cover;
     display: grid;
@@ -530,6 +540,10 @@ section.text-2cols{
   cursor: pointer;
   .container{
     padding: $padding;
+    display: grid;
+    span{
+        @include setupfont($size: 0.8rem);
+    }
   }
   img{
     object-fit: cover;
@@ -549,6 +563,22 @@ section.text-2cols{
         }
     }
 }
+}
+
+.small-thumbnail{
+    display: grid;
+    grid-template-columns: 1fr;
+    color: $white;
+    text-align: center;
+    .container {
+        h4, span{
+            text-shadow: $text-shadow;
+        }
+        span{
+            font-weight: 600;
+        }
+    }
+    
 }
 
 /* buttony

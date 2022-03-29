@@ -1,0 +1,25 @@
+@use '../../MyTemplate.scss' as template;
+
+.comments{
+    justify-self: flex-start;
+    .comments-depth2{
+        margin-left: 1rem;
+        span{
+            cursor: pointer;
+            font-size: template.$small-text;
+            &:hover{
+                color: template.$color-primary2;
+        }}
+    }
+    .comment-container{
+        margin: 0.5rem 0;
+    }
+    .comment-button{
+        color: rgb(65, 56, 62);
+        font-size: template.$small-text;
+        &:hover{
+            filter: none;
+        }
+    }
+}
+

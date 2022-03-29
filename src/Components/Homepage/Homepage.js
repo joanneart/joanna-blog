@@ -36,7 +36,7 @@ export default function Homepage({articles, newest10}){
             if(isLoading){
                 navigate('/timeout')
             }
-        },5000)
+        },20000)
         return () => clearTimeout(timeoutID);
     },[isLoading, navigate])
 

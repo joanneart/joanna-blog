@@ -28,7 +28,7 @@ export default function Slider({imgs}){
     return(
         <>
         <div className="slider">
-            <div className="slider-container" style={{marginLeft: '-'+100*pointer+'%', width: 100*imgs.length+'%'}}>
+            <div className="container" style={{marginLeft: '-'+100*pointer+'%', width: 100*imgs.length+'%'}}>
                 {imgs.map((img,key) => <img 
                     key={key}
                     className="slider-img"
@@ -36,7 +36,7 @@ export default function Slider({imgs}){
                     src={img}/>
                 )}
             </div>
-            <form className="slider-controls">
+            <form className="controls">
             {imgs.map((img, key) => {
                 return(
                     <input key={key} type="radio" value={key} id={`radio-btn${key}`} checked={pointer===key} name="radio-btn" onChange={() => {
