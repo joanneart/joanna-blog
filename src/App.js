@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { getAllArticles, getAllComments } from './api';
 
-import './App.css';
+import './App.scss';
 import './MyTemplate.scss';
 
 import Homepage from './Components/Homepage/Homepage';

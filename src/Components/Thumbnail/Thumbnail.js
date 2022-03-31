@@ -8,7 +8,7 @@ export default function Thumbnail({article}){
     return(
         <section className='small-thumbnail' style={{backgroundImage: `url(${article.data.img})`}}>
             <div className='container'>
-                <h4>{article.data.title.toLowerCase()}</h4>
+                <h4>{article.data.title}</h4>
                 <span>{article.data.article_type}</span>
             </div>
             <nav>
